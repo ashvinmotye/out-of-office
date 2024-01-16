@@ -1,7 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
+  const greeting = 'Hello, thank you for your message.';
+  const ending = 'Have a nice day. Thank you.';
+
   const messageTemplate = {
-    multiple: `Hello, thank you for your message. Please note that I am currently on leave from [start] to [end]. I will get back to you on [return]. Have a nice day. Thank you.`,
-    single: `Hello, thank you for your message. Please note that I am currently on leave today, [start]. I will get back to you on [return]. Have a nice day. Thank you.`
+    multiple: `${greeting} Please note that I am on leave from [start] to [end]. I will get back to you on [return]. ${ending}`,
+    single: `${greeting} Please note that I am on leave today, [start]. I will get back to you on [return]. ${ending}`,
+    publicHoliday: `${greeting} Please note that I am on leave today, [start] (public holiday in Mauritius). I will get back to you on [return]. ${ending}`
   };
 
   const getNextWorkDay = date => {
@@ -19,6 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const messageEl = document.querySelector('#message');
 
   buttonEl.addEventListener('click', () => {
+    const isPublicHoliday = document.querySelector('#public-holiday').checked;
+
     const options = {
       weekday: 'long',
       month: 'long',
@@ -32,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let message = messageTemplate.multiple;
 
     if (endDate == 'Invalid Date') {
-      message = messageTemplate.single;
+      message = isPublicHoliday ? messageTemplate.publicHoliday : messageTemplate.single;
       message = message.replace('[return]', getNextWorkDay(new Date(startDateEl.value)).toLocaleDateString('en', options));
     }
 
