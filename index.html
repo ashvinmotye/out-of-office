@@ -5,23 +5,46 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Out of Office | Ashvin Motye</title>
+  <link rel="icon" type="image/png" href="https://ashvinmotye.com/icon.png">
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
+  <link rel="stylesheet" href="./app.css">
 </head>
 
 <body>
-  <label for="start-date">Start Date</label><br>
-  <input type="date" name="start-date" id="start-date">
+  <div class="container">
+    <div class="content">
+      <div class="form-content">
+        <label for="start-date">Start Date</label><br>
+        <input type="date" name="start-date" id="start-date">
+      </div>
+  
+      <div class="form-content form-content--checkbox">
+        <input type="checkbox" name="public-holiday" id="public-holiday">
+        <label for="public-holiday">Public Holiday</label><br>
+      </div>
+    
+      <div class="form-content">
+        <label for="end-date">End Date</label><br>
+        <input type="date" name="end-date" id="end-date">
+      </div>
+    
+      <button id="generate-message">Get Message</button>
+      <button id="copy-message">Copy Message</button>
+    </div>
+  
+    <div id="message"></div>
 
-  <input type="checkbox" name="public-holiday" id="public-holiday">
-  <label for="public-holiday">Public Holiday</label><br>
-  <br>
-
-  <label for="end-date">End Date</label><br>
-  <input type="date" name="end-date" id="end-date">
-  <br><br>
-
-  <button id="generate-message">Get Message</button>
-
-  <div id="message"></div>
+    <div class="how-to">
+      <h2>How to</h2>
+      <ul>
+        <li>Select start date for a single day of leave or start date of multiple days.</li>
+        <li>Check 'Public Holiday' for a single day of leave for a public holiday.</li>
+        <li>Select end date <u>only</u> for multiple days of leave.</li>
+        <li>Return date is automatically generated as the next business day.</li>
+      </ul>
+    </div>
+  </div>
 
   <script src="./app.js"></script>
 </body>

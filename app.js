@@ -1,3 +1,15 @@
+const copyToClipboard = (str) => {
+  const el = document.createElement('textarea');
+  el.value = str;
+  el.setAttribute('readonly', '');
+  el.style.position = 'absolute';
+  el.style.left = '-9999px';
+  document.body.appendChild(el);
+  el.select();
+  document.execCommand('copy');
+  document.body.removeChild(el);
+};
+
 document.addEventListener('DOMContentLoaded', () => {
   const greeting = 'Hello, thank you for your message.';
   const ending = 'Have a nice day. Thank you.';
@@ -18,6 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   const buttonEl = document.querySelector('#generate-message');
+  const copyBtn = document.querySelector('#copy-message');
   const startDateEl = document.querySelector('#start-date');
   const endDateEl = document.querySelector('#end-date');
   const messageEl = document.querySelector('#message');
@@ -57,4 +70,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     messageEl.innerText = message;
   });
+
+  copyBtn.addEventListener('click', function(){
+    let message = document.querySelector('#message').innerText;
+    if(!message.length) {
+      return;
+    }
+    copyToClipboard( message );
+    copyBtn.innerText = 'Copied!';
+    copyBtn.disabled = true;
+
+    setTimeout(() => {
+      copyBtn.innerText = 'Copy message';
+      copyBtn.disabled = false;
+    }, 3000);
+  })
 });

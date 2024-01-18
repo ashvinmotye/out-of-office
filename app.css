@@ -1,0 +1,133 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #f9f9f9;
+    color: #1f1f1f;
+    font-family: 'Nunito', sans-serif;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.form-content:not(:first-of-type) {
+    margin-bottom: 14px;
+}
+
+label {
+    font-size: 11px;
+    text-transform: uppercase;
+    color: #707070;
+}
+
+div#message {
+    margin-top: 20px;
+    width: 50%;
+}
+
+input {
+    width: 100%;
+}
+
+.content {
+    width: 50%;
+}
+
+.container > div {
+    padding: 15px;
+}
+
+.container {
+    box-shadow: 0px 0px 25px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-top: 60px;
+}
+
+button {
+    padding: 8px 24px;
+    border: none;
+    border-radius: 6px;
+    background-color: #0275ff;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    margin-top: 24px;
+}
+
+input[type=date] {
+    height: 36px;
+    border: 1px solid #e2e2e2;
+    padding: 0 10px;
+}
+
+input[type=date]:focus {
+    outline: 1px solid #0275ff;
+}
+
+.form-content.form-content--checkbox {
+    display: flex;
+    height: 20px;
+    align-items: center;
+    justify-content: left;
+    margin-top: 4px;
+}
+
+.form-content.form-content--checkbox > * {
+    flex-basis: fit-content;
+}
+
+.form-content.form-content--checkbox label {
+    display: block;
+    margin-left: 6px;
+    text-transform: uppercase;
+    line-height: 1;
+}
+
+button[disabled] {
+    background-color: #8abfff;
+    cursor: not-allowed;
+}
+
+.how-to {
+    font-size: 10px;
+}
+
+.how-to h2 {
+    text-transform: uppercase;
+    font-size: 10px;
+}
+
+ul {
+    margin-left: 12px;
+    color: #707070;
+}
+
+@media screen and (max-width: 800px) {
+    .container {
+        flex-direction: column;
+        margin: 60px 20px;
+    }
+   .content,
+    div#message{
+        width: 100%;
+    } 
+    div#message{
+        margin-top: 60px;
+    } 
+    .container > div {
+        padding: 0;
+    }
+    .how-to {
+        margin-top: 50px;
+    }
+}
