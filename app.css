@@ -52,7 +52,7 @@ input {
 }
 
 button {
-    padding: 8px 24px;
+    padding: 8px 0;
     border: none;
     border-radius: 6px;
     background-color: #0275ff;
@@ -62,15 +62,18 @@ button {
     letter-spacing: 0.5px;
     cursor: pointer;
     margin-top: 24px;
+    width: 134px;
 }
 
-input[type=date] {
+input[type=date],
+input[type=text] {
     height: 36px;
     border: 1px solid #e2e2e2;
     padding: 0 10px;
 }
 
-input[type=date]:focus {
+input[type=date]:focus,
+input[type=text]:focus {
     outline: 1px solid #0275ff;
 }
 
@@ -100,6 +103,7 @@ button[disabled] {
 
 .how-to {
     font-size: 10px;
+    margin-top: 30px;
 }
 
 .how-to h2 {
@@ -110,6 +114,11 @@ button[disabled] {
 ul {
     margin-left: 12px;
     color: #707070;
+}
+
+.container .title {
+    width: 100%;
+    padding: 0 15px;
 }
 
 @media screen and (max-width: 800px) {
@@ -129,5 +138,10 @@ ul {
     }
     .how-to {
         margin-top: 50px;
+    }
+    .container .title {
+        padding: 0;
+        font-size: 14px;
+        margin-bottom: 20px;
     }
 }

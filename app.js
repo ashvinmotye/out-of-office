@@ -11,13 +11,14 @@ const copyToClipboard = (str) => {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-  const greeting = 'Hello, thank you for your message.';
-  const ending = 'Have a nice day. Thank you.';
+  const greeting = 'Hello, thank you for your message.<br/><br/>';
+  const urgentContactMsg = '<br/><br/>For urgent matters, please contact';
+  const ending = '<br/><br/>Have a nice day. Thank you.';
 
   const messageTemplate = {
-    multiple: `${greeting} Please note that I am on leave from [start] to [end]. I will get back to you on [return]. ${ending}`,
-    single: `${greeting} Please note that I am on leave today, [start]. I will get back to you on [return]. ${ending}`,
-    publicHoliday: `${greeting} Please note that I am on leave today, [start] (public holiday in Mauritius). I will get back to you on [return]. ${ending}`
+    multiple: `${greeting} Please note that I am on leave from [start] to [end]. I will get back to you on [return].`,
+    single: `${greeting}Please note that I am on leave today, [start]. I will get back to you on [return].`,
+    publicHoliday: `${greeting}Please note that I am on leave today, [start] (public holiday in Mauritius). I will get back to you on [return].`
   };
 
   const getNextWorkDay = date => {
@@ -33,6 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const copyBtn = document.querySelector('#copy-message');
   const startDateEl = document.querySelector('#start-date');
   const endDateEl = document.querySelector('#end-date');
+  const urgentContactEl = document.querySelector('#urgent-contact');
   const messageEl = document.querySelector('#message');
 
   buttonEl.addEventListener('click', () => {
@@ -68,7 +70,13 @@ document.addEventListener('DOMContentLoaded', () => {
       message = message.replace('[return]', returnDate);
     }
 
-    messageEl.innerText = message;
+    if(urgentContactEl.value.length) {
+      message += ` ${urgentContactMsg} ${urgentContactEl.value}.`
+    }
+
+    message += ` ${ending}`;
+
+    messageEl.innerHTML = message;
   });
 
   copyBtn.addEventListener('click', function(){

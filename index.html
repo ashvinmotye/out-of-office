@@ -13,6 +13,9 @@
 
 <body>
   <div class="container">
+    <div class="title">
+      <h1>Out of Office Message</h1>
+    </div>
     <div class="content">
       <div class="form-content">
         <label for="start-date">Start Date</label><br>
@@ -28,6 +31,11 @@
         <label for="end-date">End Date</label><br>
         <input type="date" name="end-date" id="end-date">
       </div>
+
+      <div class="form-content">
+        <label for="urgent-contact">Urgent matter contact</label><br>
+        <input type="text" name="urgent-contact" id="urgent-contact" placeholder="John Doe (john.doe@email.com) +123 456 789">
+      </div>
     
       <button id="generate-message">Get Message</button>
       <button id="copy-message">Copy Message</button>
@@ -42,6 +50,7 @@
         <li>Check 'Public Holiday' for a single day of leave for a public holiday.</li>
         <li>Select end date <u>only</u> for multiple days of leave.</li>
         <li>Return date is automatically generated as the next business day.</li>
+        <li>Optionally, specify any person to contact for urgent matters.</li>
       </ul>
     </div>
   </div>
