@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const messageTemplate = {
     multiple: `${greeting} Please note that I am on leave from [start] to [end]. I will get back to you on [return].`,
     single: `${greeting}Please note that I am on leave today, [start]. I will get back to you on [return].`,
-    publicHoliday: `${greeting}Please note that I am on leave today, [start] (public holiday in Mauritius). I will get back to you on [return].`
+    publicHoliday: `${greeting}Please note that I am on leave today, [start] (public holiday). I will get back to you on [return].`
   };
 
   const getNextWorkDay = date => {
